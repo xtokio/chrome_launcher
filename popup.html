@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>App Launcher</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+  <style>
+    html,body {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      margin: 0;
+      min-height: 180px;
+      padding: 0;
+      width: 384px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 400;
+      margin: 0;
+      color: #2f5876;
+    }
+
+    h4 {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+
+    a:link, a:visited {
+      color: #000;
+      outline: 0;
+      text-decoration: none;
+    }
+
+    img {
+      width: 30px;
+    }
+
+    .modal-header {
+      align-items: center;
+      border-bottom: 0.5px solid #dadada;
+    }
+
+    .modal-content {
+      padding: 0 22px;
+    }
+
+    .modal-icons {
+      border-top: 0.5px solid #dadada;
+      height: 50px;
+      width: 100%;
+    }
+
+    .logo {
+      padding: 16px;
+    }
+
+    .logo-icon {
+      vertical-align: text-bottom;
+      margin-right: 12px;
+    }
+
+    .version {
+      color: #444;
+      font-size: 18px;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px 22px;
+      opacity: 1;
+    }
+
+    .flex {
+      opacity: 1;
+      transition: opacity 0.2s ease-in-out;
+      width: 80px;
+    }
+
+    .flex:hover {
+      opacity: 0.4;
+    }
+
+    .flex .i {
+      font-size: 40px;
+      color: #2f5876;
+    }
+
+    .flex .url_name {
+      position: relative;
+      top: -5px;
+      padding-left: 3px;
+    }
+
+    .color_dev {
+      color: #76BA1B;
+    }
+
+    .color_test {
+      color: #4C9A2A;
+    }
+
+    .color_prod {
+      color: #1E5631;
+    }
+
+    .color_green {
+      color: #4C9A2A;
+    }
+
+    /* Accordion */
+    input {
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    .row {
+      display: flex;
+    }
+    .row .col {
+      flex: 1;
+    }
+
+    /* Accordion styles */
+    .tabs {
+      overflow: hidden;
+    }
+
+    .tab {
+      width: 100%;
+      overflow: hidden;
+    }
+    .tab-label {
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      /* Icon */
+    }
+    .tab-label::after {
+      content: "\276F";
+      width: 1em;
+      height: 1em;
+      text-align: center;
+      transition: all .3s;
+    }
+    .tab-content {
+      max-height: 0;
+      color: #2c3e50;
+      background: white;
+      transition: all .3s;
+    }
+    .tab-close {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1em;
+      font-size: 0.75em;
+      cursor: pointer;
+    }
+
+    input:checked + .tab-label::after {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+    input:checked ~ .tab-content {
+      max-height: 100vh;
+      padding: 0.5em;
+    }
+
+    input:checked + .flex-container {
+      opacity: 1;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="modal-header">
+    <h1 class="logo">
+      <img src="images/logo.png" alt="Notre Dame Launcher" class="logo-icon"/> App Launcher <span class="version">(1.0.0)</span>
+    </h1>
+  </div>
+  <div id="app" class="modal-content">
+    <div class="row">
+        <div class="col">
+          <div class="tabs">
+            <div class="tab">
+              <input type="checkbox" id="chck0">
+              <label class="tab-label" for="chck0">Mis Chicanadas</label>
+              <div class="tab-content">
+
+                <div class="flex-container">
+            
+                  <div class="flex">
+                    <a href="https://mischicanadas.com" target="_blank">
+                      <i class="material-icons"> public </i> <span class="url_name">Blog</span>
+                    </a>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="tab">
+              <input type="checkbox" id="chck1">
+              <label class="tab-label" for="chck1">Google</label>
+              <div class="tab-content">
+
+                <div class="flex-container">
+                  <div class="flex">
+                    <a href="https://google.com" target="_blank">
+                      <i class="material-icons"> zoom_in </i> <span class="url_name">Search</span>
+                    </a>
+                  </div>
+            
+                  <div class="flex">
+                    <a href="https://www.google.com/imghp?hl=en" target="_blank">
+                      <i class="material-icons"> photo_camera </i> <span class="url_name">Images</span>
+                    </a>
+                  </div>
+            
+                  <div class="flex">
+                    <a href="https://store.google.com/US" target="_blank">
+                      <i class="material-icons"> shopping_cart </i> <span class="url_name">Store</span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+  </div>
+</body>
+</html>
